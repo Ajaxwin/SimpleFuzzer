@@ -1,0 +1,216 @@
+{
+    "HttpBin": {
+        "POST": [
+            {
+                "path": "/post",
+                "description": "Returns POST request data (form, JSON, or raw body).",
+                "example_usage": "curl -X POST -d 'key=value' https://httpbin.org/post"
+            },
+            {
+                "path": "/forms/post",
+                "description": "Similar to /post, specifically for form-encoded data. (No difference on httpbin for simple forms).",
+                "example_usage": "curl -X POST -d 'name=test&email=a@b.com' https://httpbin.org/forms/post"
+            },
+            {
+                "path": "/anything",
+                "description": "Returns request data for any method. Very flexible for testing various request types.",
+                "example_usage": "curl -X POST -H 'Content-Type: application/json' -d '{\"data\":\"test\"}' https://httpbin.org/anything"
+            },
+            {
+                "path": "/delay/{seconds}",
+                "description": "Delays responding for a given number of seconds (max 10). Returns request data after delay.",
+                "example_usage": "curl -X POST -d 'hello' https://httpbin.org/delay/3"
+            },
+            {
+                "path": "/status/{codes}",
+                "description": "Returns given HTTP Status code(s) (e.g., 200, 404, 500).",
+                "example_usage": "curl -X POST https://httpbin.org/status/201"
+            },
+            {
+                "path": "/basic-auth/{user}/{passwd}",
+                "description": "Challenges HTTP Basic Auth. Can be used with POST to verify credentials.",
+                "example_usage": "curl -X POST -u 'user:passwd' https://httpbin.org/basic-auth/user/passwd"
+            },
+            {
+                "path": "/digest-auth/{qop}/{user}/{passwd}",
+                "description": "Challenges HTTP Digest Auth (qop can be 'auth' or 'auth-int'). Can be used with POST to verify credentials.",
+                "example_usage": "curl -X POST --digest -u 'user:passwd' https://httpbin.org/digest-auth/auth/user/passwd"
+            },
+            {
+                "path": "/bearer",
+                "description": "Challenges Bearer token authentication. Can be used with POST to submit a token.",
+                "example_usage": "curl -X POST -H 'Authorization: Bearer MYTOKEN' https://httpbin.org/bearer"
+            },
+            {
+                "path": "/bytes/{n}",
+                "description": "Returns n random bytes as response. Can also send n bytes as a request body.",
+                "example_usage": "curl -X POST --data-binary @/dev/random https://httpbin.org/bytes/100"
+            },
+            {
+                "path": "/encoding/utf8",
+                "description": "Returns a page containing UTF-8 data. Can also send UTF-8 data in the request body.",
+                "example_usage": "curl -X POST -H 'Content-Type: text/plain; charset=utf-8' -d '你好世界' https://httpbin.org/encoding/utf8"
+            },
+            {
+                "path": "/headers",
+                "description": "Returns the incoming request's HTTP headers.",
+                "example_usage": "curl -X POST -H 'X-Custom-Header: value' https://httpbin.org/headers"
+            },
+            {
+                "path": "/ip",
+                "description": "Returns origin IP.",
+                "example_usage": "curl -X POST https://httpbin.org/ip"
+            },
+            {
+                "path": "/user-agent",
+                "description": "Returns user-agent.",
+                "example_usage": "curl -X POST https://httpbin.org/user-agent"
+            }
+        ],
+        "PUT": [
+            {
+                "path": "/put",
+                "description": "Returns PUT request data.",
+                "example_usage": "curl -X PUT -d 'key=value' https://httpbin.org/put"
+            },
+            {
+                "path": "/anything",
+                "description": "Returns request data for any method.",
+                "example_usage": "curl -X PUT -H 'Content-Type: application/json' -d '{\"update\":\"data\"}' https://httpbin.org/anything"
+            },
+            {
+                "path": "/delay/{seconds}",
+                "description": "Delays responding for a given number of seconds. Returns request data after delay.",
+                "example_usage": "curl -X PUT -d 'update_item' https://httpbin.org/delay/2"
+            },
+            {
+                "path": "/status/{codes}",
+                "description": "Returns given HTTP Status code(s).",
+                "example_usage": "curl -X PUT https://httpbin.org/status/200"
+            },
+            {
+                "path": "/headers",
+                "description": "Returns the incoming request's HTTP headers.",
+                "example_usage": "curl -X PUT -H 'X-PUT-Header: test' https://httpbin.org/headers"
+            },
+            {
+                "path": "/ip",
+                "description": "Returns origin IP.",
+                "example_usage": "curl -X PUT https://httpbin.org/ip"
+            },
+            {
+                "path": "/user-agent",
+                "description": "Returns user-agent.",
+                "example_usage": "curl -X PUT https://httpbin.org/user-agent"
+            }
+        ],
+        "DELETE": [
+            {
+                "path": "/delete",
+                "description": "Returns DELETE request data.",
+                "example_usage": "curl -X DELETE https://httpbin.org/delete"
+            },
+            {
+                "path": "/anything",
+                "description": "Returns request data for any method.",
+                "example_usage": "curl -X DELETE https://httpbin.org/anything"
+            },
+            {
+                "path": "/delay/{seconds}",
+                "description": "Delays responding for a given number of seconds. Returns request data after delay.",
+                "example_usage": "curl -X DELETE https://httpbin.org/delay/1"
+            },
+            {
+                "path": "/status/{codes}",
+                "description": "Returns given HTTP Status code(s).",
+                "example_usage": "curl -X DELETE https://httpbin.org/status/204"
+            },
+            {
+                "path": "/headers",
+                "description": "Returns the incoming request's HTTP headers.",
+                "example_usage": "curl -X DELETE https://httpbin.org/headers"
+            },
+            {
+                "path": "/ip",
+                "description": "Returns origin IP.",
+                "example_usage": "curl -X DELETE https://httpbin.org/ip"
+            },
+            {
+                "path": "/user-agent",
+                "description": "Returns user-agent.",
+                "example_usage": "curl -X DELETE https://httpbin.org/user-agent"
+            }
+        ],
+        "PATCH": [
+            {
+                "path": "/patch",
+                "description": "Returns PATCH request data.",
+                "example_usage": "curl -X PATCH -d '{\"field\":\"newValue\"}' https://httpbin.org/patch"
+            },
+            {
+                "path": "/anything",
+                "description": "Returns request data for any method.",
+                "example_usage": "curl -X PATCH -H 'Content-Type: application/json' -d '{\"partial\":\"update\"}' https://httpbin.org/anything"
+            },
+            {
+                "path": "/delay/{seconds}",
+                "description": "Delays responding for a given number of seconds. Returns request data after delay.",
+                "example_usage": "curl -X PATCH -d 'patch_data' https://httpbin.org/delay/2"
+            },
+            {
+                "path": "/status/{codes}",
+                "description": "Returns given HTTP Status code(s).",
+                "example_usage": "curl -X PATCH https://httpbin.org/status/200"
+            },
+            {
+                "path": "/headers",
+                "description": "Returns the incoming request's HTTP headers.",
+                "example_usage": "curl -X PATCH -H 'X-PATCH-Header: test' https://httpbin.org/headers"
+            },
+            {
+                "path": "/ip",
+                "description": "Returns origin IP.",
+                "example_usage": "curl -X PATCH https://httpbin.org/ip"
+            },
+            {
+                "path": "/user-agent",
+                "description": "Returns user-agent.",
+                "example_usage": "curl -X PATCH https://httpbin.org/user-agent"
+            }
+        ],
+        "HEAD": [
+            {
+                "path": "/head",
+                "description": "Returns HEAD request data (no response body, only headers).",
+                "example_usage": "curl -I https://httpbin.org/head"
+            },
+            {
+                "path": "/anything",
+                "description": "Returns request data for any method (no response body for HEAD requests).",
+                "example_usage": "curl -I https://httpbin.org/anything"
+            },
+            {
+                "path": "/status/{codes}",
+                "description": "Returns given HTTP Status code(s) (no response body for HEAD requests).",
+                "example_usage": "curl -I https://httpbin.org/status/200"
+            },
+            {
+                "path": "/delay/{seconds}",
+                "description": "Delays responding for a given number of seconds. (no response body for HEAD requests).",
+                "example_usage": "curl -I https://httpbin.org/delay/1"
+            }
+        ],
+        "OPTIONS": [
+            {
+                "path": "/options",
+                "description": "Returns OPTIONS request data (usually includes 'Allow' header).",
+                "example_usage": "curl -X OPTIONS https://httpbin.org/options"
+            },
+            {
+                "path": "/anything",
+                "description": "Returns request data for any method, typically includes 'Allow' header.",
+                "example_usage": "curl -X OPTIONS https://httpbin.org/anything"
+            }
+        ]
+    }
+}
